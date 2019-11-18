@@ -31,9 +31,9 @@
             this.hamburgerBtn = new System.Windows.Forms.RadioButton();
             this.pizzaBtn = new System.Windows.Forms.RadioButton();
             this.saladBtn = new System.Windows.Forms.RadioButton();
-            this.checkBox1 = new System.Windows.Forms.CheckBox();
-            this.checkBox2 = new System.Windows.Forms.CheckBox();
-            this.checkBox3 = new System.Windows.Forms.CheckBox();
+            this.firstAddon = new System.Windows.Forms.CheckBox();
+            this.secondAddon = new System.Windows.Forms.CheckBox();
+            this.thirdAddon = new System.Windows.Forms.CheckBox();
             this.subtotalTxt = new System.Windows.Forms.TextBox();
             this.taxTxt = new System.Windows.Forms.TextBox();
             this.orderTotalTxt = new System.Windows.Forms.TextBox();
@@ -60,6 +60,7 @@
             this.hamburgerBtn.TabStop = true;
             this.hamburgerBtn.Text = "Hamburger - $6.95";
             this.hamburgerBtn.UseVisualStyleBackColor = true;
+            this.hamburgerBtn.CheckedChanged += new System.EventHandler(this.hamburgerBtn_CheckedChanged);
             // 
             // pizzaBtn
             // 
@@ -71,6 +72,7 @@
             this.pizzaBtn.TabStop = true;
             this.pizzaBtn.Text = "Pizza - $5.95";
             this.pizzaBtn.UseVisualStyleBackColor = true;
+            this.pizzaBtn.CheckedChanged += new System.EventHandler(this.pizzaBtn_CheckedChanged);
             // 
             // saladBtn
             // 
@@ -82,39 +84,41 @@
             this.saladBtn.TabStop = true;
             this.saladBtn.Text = "Salad - $4.95";
             this.saladBtn.UseVisualStyleBackColor = true;
+            this.saladBtn.CheckedChanged += new System.EventHandler(this.saladBtn_CheckedChanged);
             // 
-            // checkBox1
+            // firstAddon
             // 
-            this.checkBox1.AutoSize = true;
-            this.checkBox1.Location = new System.Drawing.Point(18, 49);
-            this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(98, 21);
-            this.checkBox1.TabIndex = 3;
-            this.checkBox1.Text = "checkBox1";
-            this.checkBox1.UseVisualStyleBackColor = true;
+            this.firstAddon.AutoSize = true;
+            this.firstAddon.Location = new System.Drawing.Point(18, 49);
+            this.firstAddon.Name = "firstAddon";
+            this.firstAddon.Size = new System.Drawing.Size(98, 21);
+            this.firstAddon.TabIndex = 3;
+            this.firstAddon.Text = "checkBox1";
+            this.firstAddon.UseVisualStyleBackColor = true;
             // 
-            // checkBox2
+            // secondAddon
             // 
-            this.checkBox2.AutoSize = true;
-            this.checkBox2.Location = new System.Drawing.Point(18, 76);
-            this.checkBox2.Name = "checkBox2";
-            this.checkBox2.Size = new System.Drawing.Size(98, 21);
-            this.checkBox2.TabIndex = 4;
-            this.checkBox2.Text = "checkBox2";
-            this.checkBox2.UseVisualStyleBackColor = true;
+            this.secondAddon.AutoSize = true;
+            this.secondAddon.Location = new System.Drawing.Point(18, 76);
+            this.secondAddon.Name = "secondAddon";
+            this.secondAddon.Size = new System.Drawing.Size(98, 21);
+            this.secondAddon.TabIndex = 4;
+            this.secondAddon.Text = "checkBox2";
+            this.secondAddon.UseVisualStyleBackColor = true;
             // 
-            // checkBox3
+            // thirdAddon
             // 
-            this.checkBox3.AutoSize = true;
-            this.checkBox3.Location = new System.Drawing.Point(18, 103);
-            this.checkBox3.Name = "checkBox3";
-            this.checkBox3.Size = new System.Drawing.Size(98, 21);
-            this.checkBox3.TabIndex = 5;
-            this.checkBox3.Text = "checkBox3";
-            this.checkBox3.UseVisualStyleBackColor = true;
+            this.thirdAddon.AutoSize = true;
+            this.thirdAddon.Location = new System.Drawing.Point(18, 103);
+            this.thirdAddon.Name = "thirdAddon";
+            this.thirdAddon.Size = new System.Drawing.Size(98, 21);
+            this.thirdAddon.TabIndex = 5;
+            this.thirdAddon.Text = "checkBox3";
+            this.thirdAddon.UseVisualStyleBackColor = true;
             // 
             // subtotalTxt
             // 
+            this.subtotalTxt.Enabled = false;
             this.subtotalTxt.Location = new System.Drawing.Point(105, 29);
             this.subtotalTxt.Name = "subtotalTxt";
             this.subtotalTxt.Size = new System.Drawing.Size(100, 22);
@@ -122,6 +126,7 @@
             // 
             // taxTxt
             // 
+            this.taxTxt.Enabled = false;
             this.taxTxt.Location = new System.Drawing.Point(105, 64);
             this.taxTxt.Name = "taxTxt";
             this.taxTxt.Size = new System.Drawing.Size(100, 22);
@@ -129,6 +134,7 @@
             // 
             // orderTotalTxt
             // 
+            this.orderTotalTxt.Enabled = false;
             this.orderTotalTxt.Location = new System.Drawing.Point(105, 97);
             this.orderTotalTxt.Name = "orderTotalTxt";
             this.orderTotalTxt.Size = new System.Drawing.Size(100, 22);
@@ -142,6 +148,7 @@
             this.placeOrderBtn.TabIndex = 9;
             this.placeOrderBtn.Text = "Place Order";
             this.placeOrderBtn.UseVisualStyleBackColor = true;
+            this.placeOrderBtn.Click += new System.EventHandler(this.placeOrderBtn_Click);
             // 
             // exitBtn
             // 
@@ -151,12 +158,13 @@
             this.exitBtn.TabIndex = 10;
             this.exitBtn.Text = "Exit";
             this.exitBtn.UseVisualStyleBackColor = true;
+            this.exitBtn.Click += new System.EventHandler(this.exitBtn_Click);
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.checkBox1);
-            this.groupBox1.Controls.Add(this.checkBox2);
-            this.groupBox1.Controls.Add(this.checkBox3);
+            this.groupBox1.Controls.Add(this.firstAddon);
+            this.groupBox1.Controls.Add(this.secondAddon);
+            this.groupBox1.Controls.Add(this.thirdAddon);
             this.groupBox1.Location = new System.Drawing.Point(261, 32);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(206, 153);
@@ -245,9 +253,9 @@
         private System.Windows.Forms.RadioButton hamburgerBtn;
         private System.Windows.Forms.RadioButton pizzaBtn;
         private System.Windows.Forms.RadioButton saladBtn;
-        private System.Windows.Forms.CheckBox checkBox1;
-        private System.Windows.Forms.CheckBox checkBox2;
-        private System.Windows.Forms.CheckBox checkBox3;
+        private System.Windows.Forms.CheckBox firstAddon;
+        private System.Windows.Forms.CheckBox secondAddon;
+        private System.Windows.Forms.CheckBox thirdAddon;
         private System.Windows.Forms.TextBox subtotalTxt;
         private System.Windows.Forms.TextBox taxTxt;
         private System.Windows.Forms.TextBox orderTotalTxt;
