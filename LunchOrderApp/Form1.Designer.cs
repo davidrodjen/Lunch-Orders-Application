@@ -42,9 +42,9 @@
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -60,7 +60,7 @@
             this.hamburgerBtn.TabStop = true;
             this.hamburgerBtn.Text = "Hamburger - $6.95";
             this.hamburgerBtn.UseVisualStyleBackColor = true;
-            this.hamburgerBtn.CheckedChanged += new System.EventHandler(this.hamburgerBtn_CheckedChanged);
+            this.hamburgerBtn.CheckedChanged += new System.EventHandler(this.HamburgerBtn_CheckedChanged);
             // 
             // pizzaBtn
             // 
@@ -72,7 +72,7 @@
             this.pizzaBtn.TabStop = true;
             this.pizzaBtn.Text = "Pizza - $5.95";
             this.pizzaBtn.UseVisualStyleBackColor = true;
-            this.pizzaBtn.CheckedChanged += new System.EventHandler(this.pizzaBtn_CheckedChanged);
+            this.pizzaBtn.CheckedChanged += new System.EventHandler(this.PizzaBtn_CheckedChanged);
             // 
             // saladBtn
             // 
@@ -84,7 +84,7 @@
             this.saladBtn.TabStop = true;
             this.saladBtn.Text = "Salad - $4.95";
             this.saladBtn.UseVisualStyleBackColor = true;
-            this.saladBtn.CheckedChanged += new System.EventHandler(this.saladBtn_CheckedChanged);
+            this.saladBtn.CheckedChanged += new System.EventHandler(this.SaladBtn_CheckedChanged);
             // 
             // firstAddon
             // 
@@ -148,7 +148,7 @@
             this.placeOrderBtn.TabIndex = 9;
             this.placeOrderBtn.Text = "Place Order";
             this.placeOrderBtn.UseVisualStyleBackColor = true;
-            this.placeOrderBtn.Click += new System.EventHandler(this.placeOrderBtn_Click);
+            this.placeOrderBtn.Click += new System.EventHandler(this.PlaceOrderBtn_Click);
             // 
             // exitBtn
             // 
@@ -158,7 +158,7 @@
             this.exitBtn.TabIndex = 10;
             this.exitBtn.Text = "Exit";
             this.exitBtn.UseVisualStyleBackColor = true;
-            this.exitBtn.Click += new System.EventHandler(this.exitBtn_Click);
+            this.exitBtn.Click += new System.EventHandler(this.ExitBtn_Click);
             // 
             // groupBox1
             // 
@@ -199,14 +199,14 @@
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Order Total";
             // 
-            // label1
+            // label3
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(7, 34);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(64, 17);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Subtotal:";
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(11, 102);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(85, 17);
+            this.label3.TabIndex = 2;
+            this.label3.Text = "Order Total:";
             // 
             // label2
             // 
@@ -217,19 +217,20 @@
             this.label2.TabIndex = 1;
             this.label2.Text = "Tax (7.75%):";
             // 
-            // label3
+            // label1
             // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(11, 102);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(85, 17);
-            this.label3.TabIndex = 2;
-            this.label3.Text = "Order Total:";
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(7, 34);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(64, 17);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "Subtotal:";
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.ClientSize = new System.Drawing.Size(518, 421);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox2);

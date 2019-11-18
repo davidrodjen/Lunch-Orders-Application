@@ -17,13 +17,13 @@ namespace LunchOrderApp
             InitializeComponent();
         }
 
-        private void exitBtn_Click(object sender, EventArgs e)
+        private void ExitBtn_Click(object sender, EventArgs e)
         {
-            clearCheckBoxes();
+            ClearCheckBoxes();
             Close();
         }
 
-        private void hamburgerBtn_CheckedChanged(object sender, EventArgs e)
+        private void HamburgerBtn_CheckedChanged(object sender, EventArgs e)
         {
             
             DisplayAddOns(hamburgerBtn, "Lettuce, and Tomato", "Salt and Pepper",
@@ -48,75 +48,76 @@ namespace LunchOrderApp
             }
         }
 
-        private void pizzaBtn_CheckedChanged(object sender, EventArgs e)
+        private void PizzaBtn_CheckedChanged(object sender, EventArgs e)
         {
-            clearCheckBoxes();
+            ClearCheckBoxes();
             DisplayAddOns(pizzaBtn, "Pepperoni", "Sausage", "Olives");
         }
 
-        private void saladBtn_CheckedChanged(object sender, EventArgs e)
+        private void SaladBtn_CheckedChanged(object sender, EventArgs e)
         {
-            clearCheckBoxes();
+            ClearCheckBoxes();
             DisplayAddOns(saladBtn, "Crutons", "Bacon Bits", "Bread Sticks");
         }
 
-        private void clearCheckBoxes()
+        private void ClearCheckBoxes()
         {
             firstAddon.Checked = false;
             secondAddon.Checked = false;
             thirdAddon.Checked = false;
         }
 
-        private void placeOrderBtn_Click(object sender, EventArgs e)
+        private void PlaceOrderBtn_Click(object sender, EventArgs e)
         {
-            double r1Price = 6.95;
-            double r2Price = 5.95;
-            double r3Price = 4.95;
+            double hambPrice = 6.95;
+            double pizzaPrice = 5.95;
+            double saladPrice = 4.95;
 
 
-            double addOnPriceHamburger = .75;
-            double addOnPricePizza = .50;
-            double addOnPriceSalad = .25;
+            double addOnPriceHamburger = 0.75;
+            double addOnPricePizza = 0.50;
+            double addOnPriceSalad = 0.25;
 
             if (hamburgerBtn.Checked)
             {
-                CalculateOrder(r1Price, addOnPriceHamburger);
+                CalculateOrder(hambPrice, addOnPriceHamburger);
             }
             if (pizzaBtn.Checked)
             {
-                CalculateOrder(r2Price, addOnPricePizza);
+                CalculateOrder(pizzaPrice, addOnPricePizza);
             }
             if (saladBtn.Checked)
             {
-                CalculateOrder(r3Price, addOnPriceSalad);
+                CalculateOrder(saladPrice, addOnPriceSalad);
             }
         }
 
-        private void CalculateOrder(double price, double addOn)
+        private void CalculateOrder(double price, double extraItem)
         {
             double total = 0;
             
             if (firstAddon.Checked)
             {
-                total += addOn;
+                total += extraItem;
             }
             if (secondAddon.Checked)
             {
-                total += addOn;
+                total += extraItem;
             }
             if (thirdAddon.Checked)
             {
-                total += addOn;
+                total += extraItem;
             }
 
-            double subTotal = total + price;
-            double tax = Math.Round((total * 0.065), 2);
+            double subTotal = Math.Round((total + price), 3);
+            subtotalTxt.Text = "$" + subTotal.ToString();
 
-            subtotalTxt.Text = subTotal.ToString();
-            orderTotalTxt.Text = total.ToString();
-            taxTxt.Text = tax.ToString();
+            double tax = Math.Round((subTotal * 0.0775), 2);
+            taxTxt.Text = "$" + tax.ToString();
 
-
+            double totalOrder = Math.Round((subTotal + tax), 2);
+            orderTotalTxt.Text = "$" + totalOrder.ToString();
+            
         }
     }
 }
